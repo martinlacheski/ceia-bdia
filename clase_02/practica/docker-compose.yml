@@ -1,3 +1,4 @@
+name: bdia_clase_02
 services:
   postgres:
     image: postgres:16
@@ -16,7 +17,7 @@ services:
       - bdia_network
 
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:latest
     container_name: bdia_pgadmin
     restart: unless-stopped
     environment:
@@ -28,6 +29,7 @@ services:
       - postgres
     volumes:
       - pgadmin_data:/var/lib/pgadmin
+      - ./sql:/var/lib/pgadmin/storage/admin_bdia.com/sql
     networks:
       - bdia_network
 
